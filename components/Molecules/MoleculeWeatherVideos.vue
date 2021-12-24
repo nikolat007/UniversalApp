@@ -7,7 +7,9 @@
 </template>
 
 <script>
+
 export default {
+
     name: "MoleculeWeatherVideos",
     data() {
         return {
@@ -28,5 +30,24 @@ export default {
             return this.$store.getters['weather/getWeatherType'];
         }
     }
+    // COMPOSITION API VERSION
+    // setup() {
+    //     const weatherTypes = ref([
+    //         "Clear",
+    //         "Clouds",
+    //         "Drizzle",
+    //         "Haze",
+    //         "Rain",
+    //         "Snow",
+    //         "Thunderstorm",
+    //         "Smoke"
+    //     ]);
+
+    //     const getWeatherType = computed(() => {
+    //         return store.getters['weather/getWeatherType'];
+    //     });
+
+    //     return { weatherTypes, getWeatherType };
+    // }
 }
 </script>
