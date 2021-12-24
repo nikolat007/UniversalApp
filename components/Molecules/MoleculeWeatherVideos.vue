@@ -18,7 +18,8 @@ export default {
                 "Haze",
                 "Rain",
                 "Snow",
-                "Thunderstorm"
+                "Thunderstorm",
+                "Smoke"
             ]
         }
     },
@@ -29,4 +30,3 @@ export default {
     }
 }
 </script>
-
