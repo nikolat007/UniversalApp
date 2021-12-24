@@ -1,0 +1,32 @@
+<template>
+    <div id="responsiveVideoWrapper" class="absolute inset-0  -z-50 brightness-[.3]">
+        <video v-for="(type, index) in weatherTypes" :key="index" autoplay muted loop id="myVideo" class="h-full w-full object-cover" :class="getWeatherType==type ? '' : 'hidden'">
+            <source :src="require(`~/assets/videos/${type}.mp4`)" type="video/mp4">
+        </video>
+    </div>
+</template>
+
+<script>
+export default {
+    name: "MoleculeWeatherVideos",
+    data() {
+        return {
+            weatherTypes: [
+                "Clear",
+                "Clouds",
+                "Drizzle",
+                "Haze",
+                "Rain",
+                "Snow",
+                "Thunderstorm"
+            ]
+        }
+    },
+    computed: {
+        getWeatherType() {
+            return this.$store.getters['weather/getWeatherType'];
+        }
+    }
+}
+</script>
+
