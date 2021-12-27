@@ -20,7 +20,7 @@
             </div>
             <div class="flex flex-row">
                 <div class="flex-1 h-20 flex items-center justify-center m-1 shadow-md rounded" style="background-color: rgb(255, 255, 255, 10%);">
-                    <p class="text-center text-white"><span class="font-bold">Humidity</span> <br> {{ city.main.humidity }}</p>
+                    <p class="text-center text-white"><span class="font-bold">Humidity</span> <br> {{ city.main.humidity }} %</p>
                 </div>
                 <div class="flex-1 h-20 flex items-center justify-center m-1 shadow-md rounded" style="background-color: rgb(255, 255, 255, 10%);">
                     <p class="text-center text-white"><span class="font-bold">Wind</span> <br> {{ city.wind.speed }} m/s</p>
