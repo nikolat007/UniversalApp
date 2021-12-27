@@ -21,9 +21,3 @@ export const getters = {
         return state.weatherType;
     }
 }
-
-export const computed = {
-    ...mapGetters([
-        'getWeatherType'
-    ])
-}

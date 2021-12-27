@@ -27,11 +27,6 @@ export const getters = {
         }
     }
 }
-export const computed = {
-    ...mapGetters([
-        'getTodos'
-    ])
-}
 export const actions = {
     addTodo(context, todo) {
         context.commit('ADD_TODO', todo);
