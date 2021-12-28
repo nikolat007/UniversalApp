@@ -42,11 +42,13 @@ export default {
                     this.weatherData = data;
                     this.setStateWeatherType(this.weatherData.weather[0].main);
                     this.$emit('weatherData', this.weatherData);
+                    this.$store.dispatch('weather/setWeather', data);
                     this.toggleList = false;
                 })
                 .catch(errors => {
                     console.log(errors);
                     this.$emit('weatherData', []);
+                    this.$store.dispatch('weather/setWeather', null);
                     this.setStateWeatherType(null);
                 })
             }
@@ -77,7 +79,7 @@ export default {
         }
     },
     mounted() {
-        this.setStateWeatherType(null)
+        this.$store.dispatch('weather/setWeather', null);
     },
     computed: {
         getWeatherType() {
