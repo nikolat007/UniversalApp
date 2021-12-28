@@ -7,7 +7,7 @@
                     <p class="text-white font-bold text-4xl">{{ getIntTemperature(city.main.temp)}} °C </p>
                 </div>
                 <div class="icon flex flex-1 items-center justify-center border-l mb-5 w-1/2 h-20 mx-auto">
-                    <img class="h-20 w-20 bg-slate-400 rounded-lg" :src="'http://openweathermap.org/img/wn/' + city.weather[0].icon + '@4x.png'" alt="weather icon">
+                    <img class="h-20 w-20 bg-slate-300 rounded-lg" :src="'http://openweathermap.org/img/wn/' + city.weather[0].icon + '@4x.png'" alt="weather icon">
                 </div>
             </div>
             <div class="flex flex-row">

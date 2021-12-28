@@ -3,6 +3,7 @@
         <h1 class="text-3xl">Universal App</h1>
         <div>
         <nuxt-link to="/">Weather App</nuxt-link>
+        <!--<nuxt-link class="ml-5" to="/detailed">Todo App</nuxt-link>-->
         <nuxt-link class="ml-5" to="/todoPage">Todo App</nuxt-link>
         </div>
     </div>
