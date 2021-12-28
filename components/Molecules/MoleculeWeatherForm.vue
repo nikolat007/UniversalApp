@@ -76,11 +76,6 @@ export default {
             this.$store.dispatch('weather/setWeatherType', type);
         }
     },
-    watch: {
-        weatherData(value) {
-            return value;
-        }
-    },
     mounted() {
         this.setStateWeatherType(null)
     },
