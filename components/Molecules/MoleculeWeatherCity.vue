@@ -4,7 +4,7 @@
         <div class="flex flex-col">
             <div class="flex w-full">
                 <div class="flex 1 w-1/2 h-20 items-center justify-center">
-                    <p class="text-white font-bold text-3xl">{{ getIntTemperature(city.main.temp)}} °C </p>
+                    <p class="text-white font-bold text-4xl">{{ getIntTemperature(city.main.temp)}} °C </p>
                 </div>
                 <div class="icon flex flex-1 items-center justify-center border-l mb-5 w-1/2 h-20 mx-auto">
                     <img class="h-20 w-20 bg-slate-400 rounded-lg" :src="'http://openweathermap.org/img/wn/' + city.weather[0].icon + '@4x.png'" alt="weather icon">
