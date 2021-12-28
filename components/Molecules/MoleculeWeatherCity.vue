@@ -4,18 +4,18 @@
         <div class="flex flex-col">
             <div class="flex w-full">
                 <div class="flex 1 w-1/2 h-20 items-center justify-center">
-                    <p class="text-white font-bold text-3xl">{{ city.main.temp }} °C </p>
+                    <p class="text-white font-bold text-3xl">{{ getIntTemperature(city.main.temp)}} °C </p>
                 </div>
                 <div class="icon flex flex-1 items-center justify-center border-l mb-5 w-1/2 h-20 mx-auto">
-                    <img class="h-20 w-20" :src="'http://openweathermap.org/img/wn/' + city.weather[0].icon + '@4x.png'" alt="weather icon">
+                    <img class="h-20 w-20 bg-slate-400 rounded-lg" :src="'http://openweathermap.org/img/wn/' + city.weather[0].icon + '@4x.png'" alt="weather icon">
                 </div>
             </div>
             <div class="flex flex-row">
                 <div class="flex-1 h-20 flex items-center justify-center m-1 shadow-md rounded" style="background-color: rgb(255, 255, 255, 10%);">
-                    <p class="text-center text-white"><span class="font-bold">Min</span> <br> {{ city.main.temp_min }} °C</p>
+                    <p class="text-center text-white"><span class="font-bold">Min</span> <br> {{ getIntTemperature(city.main.temp_min) }} °C</p>
                 </div>
                 <div class="flex-1 h-20 flex items-center justify-center m-1 shadow-md rounded" style="background-color: rgb(255, 255, 255, 10%);">
-                    <p class="text-center text-white"><span class="font-bold">Max</span> <br> {{ city.main.temp_max }} °C</p>
+                    <p class="text-center text-white"><span class="font-bold">Max</span> <br> {{ getIntTemperature(city.main.temp_max) }} °C</p>
                 </div>
             </div>
             <div class="flex flex-row">
@@ -35,6 +35,13 @@ export default {
     name: "MoleculeWeatherCity",
     props: [
         "city"
-    ]
+    ],
+    methods: {
+        getIntTemperature(temperature) {
+            let number = temperature;
+            let intTemperature = Math.floor(number)
+            return intTemperature;
+        }
+    }
 }
 </script>
