@@ -21,7 +21,8 @@ export default {
                 "Rain",
                 "Snow",
                 "Thunderstorm",
-                "Smoke"
+                "Smoke",
+                "Mist"
             ]
         }
     },

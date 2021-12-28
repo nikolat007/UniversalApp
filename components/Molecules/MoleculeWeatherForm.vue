@@ -68,7 +68,6 @@ export default {
         },
         selectCity(value) {
             this.citySearch = value;
-            this.getWeatherData();
         },
         toggleOff() {
             this.toggleList = false;
