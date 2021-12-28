@@ -1,23 +1,26 @@
 <template>
-  <div class="flex flex-col justify-center items-center">
-    <MoleculesMoleculeNavigation />
-    <OrganismTodo />
-  </div>
+    <div class="w-full h-[100vh] relative">
+        <MoleculeWeatherVideos />
+        <div class="flex flex-col justify-center items-center">
+            <MoleculeNavigation />
+            <OrganismWeather />
+        </div>
+    </div>
 </template>
 
 <script>
 
+import MoleculeWeatherVideos from '../components/Molecules/MoleculeWeatherVideos.vue'
 import MoleculeNavigation from '../components/Molecules/MoleculeNavigation.vue'
-import OrganismTodo from '../components/Organisms/OrganismTodo.vue'
+import OrganismWeather from '../components/Organisms/OrganismWeather.vue'
 
 export default {
-  name: 'IndexPage',
-  components: {
-    MoleculeNavigation,
-    OrganismTodo
-  },
-  layout(context) {
-    return 'custom'
-  }
+    layout: 'custom',
+    name: "weatherPage",
+    components: {
+        MoleculeWeatherVideos,
+        MoleculeNavigation,
+        OrganismWeather
+    }
 }
 </script>
