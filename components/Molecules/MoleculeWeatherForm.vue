@@ -1,9 +1,9 @@
 <template>
     <div class="container-xl">
         <div class="w-96 mb-5">
-            <h1 class="font-bold text-3xl mb-5 w-full text-center" :class="getWeatherType ? 'text-white' : ''"><span class="text-cyan-500">Weather</span> App</h1>
+            <h1 class="font-bold text-3xl mb-5 w-full text-center" :class="getWeatherType ? 'text-white' : ''"><span class="text-cyan-500">Search</span> here</h1>
             <form class="relative" action="" @submit.prevent="submitHandle">
-                <input list="cities" class="border rounded h-10 p-2 w-full bg-slate-100" type="text" name="city" autocomplete="off" placeholder="Type City name" v-model="citySearch" @input="getCities">
+                <input list="cities" class="border rounded h-10 p-2 w-full bg-slate-100" type="text" name="city" autocomplete="off" placeholder="City name..." v-model="citySearch" @input="getCities">
                 <datalist id="cities" v-if="filteredCities && toggleList==true" class="bg-white border border-gray-100 w-full mt-2 absolute rounded max-h-96 overflow-y-auto overflow-x-hidden">
                     <option v-for="(city, index) in filteredCities" :key="index" @keypress.enter="selectCity(city.name)" class="pl-8 pr-2 py-1 relative cursor-pointer hover:bg-blue-200 hover:text-gray-900 rounded">
                         {{ city.name }}, {{ city.country }}

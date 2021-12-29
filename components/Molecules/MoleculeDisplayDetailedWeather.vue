@@ -1,6 +1,6 @@
 <template>
     <div class="flex justify-center items-center flex-wrap">
-        <MoleculeDailyWeather v-for="(daily, index) in detailedWeatherData.daily" :key="index" :details="daily"/>
+        <MoleculeDailyWeather v-for="(daily, index) in detailedWeatherData.daily.slice(1)" :key="index" :details="daily"/>
     </div>
 </template>
 

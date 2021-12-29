@@ -1,6 +1,6 @@
 <template>
     <div class="p-3 mb-20 shadow-md w-full flex items-center justify-between bg-white">
-        <h1 class="text-3xl">Weather App</h1>
+        <h1 class="text-3xl font-bold"><span class="text-cyan-500">Weather</span> App</h1>
         <div>
         <nuxt-link to="/">Current</nuxt-link>
         <nuxt-link v-if="getWeatherData" class="ml-5" to="/detailed">Detailed</nuxt-link>
