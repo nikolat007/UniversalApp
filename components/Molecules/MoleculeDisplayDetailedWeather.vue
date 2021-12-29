@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-center items-center flex-wrap">
+    <div class="md:flex justify-center sm:block items-center flex-wrap">
         <MoleculeDailyWeather v-for="(daily, index) in detailedWeatherData.daily.slice(1)" :key="index" :details="daily"/>
     </div>
 </template>
