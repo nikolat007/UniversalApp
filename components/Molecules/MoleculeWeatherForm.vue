@@ -41,7 +41,6 @@ export default {
                 .then(data => {
                     this.weatherData = data;
                     this.setStateWeatherType(this.weatherData.weather[0].main);
-                    this.$emit('weatherData', this.weatherData);
                     this.$store.dispatch('weather/setWeather', data);
                     this.toggleList = false;
                 })
@@ -77,9 +76,6 @@ export default {
         setStateWeatherType(type) {
             this.$store.dispatch('weather/setWeatherType', type);
         }
-    },
-    mounted() {
-        this.$store.dispatch('weather/setWeather', null);
     },
     computed: {
         getWeatherType() {
