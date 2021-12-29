@@ -1,5 +1,5 @@
 <template>
-    <div class="p-2 rounded-md shadow-xl" style="background-color: rgb(255, 255, 255, 20%);">
+    <div v-if="city" class="p-2 rounded-md shadow-xl" style="background-color: rgb(255, 255, 255, 20%);">
         <h2 class="text-center mb-5 mt-5 text-white"><span class="font-bold text-3xl">{{ city.name }}, {{ city.sys.country }}</span> <br> ( {{ city.weather[0].main }} )</h2>
         <div class="flex flex-col">
             <div class="flex w-full">
@@ -7,7 +7,7 @@
                     <p class="text-white font-bold text-4xl">{{ getIntTemperature(city.main.temp)}} °C </p>
                 </div>
                 <div class="icon flex flex-1 items-center justify-center border-l mb-5 w-1/2 h-20 mx-auto">
-                    <img class="h-20 w-20 bg-slate-400 rounded-lg" :src="'http://openweathermap.org/img/wn/' + city.weather[0].icon + '@4x.png'" alt="weather icon">
+                    <img class="h-20 w-20 bg-slate-300 rounded-lg" :src="'http://openweathermap.org/img/wn/' + city.weather[0].icon + '@4x.png'" alt="weather icon">
                 </div>
             </div>
             <div class="flex flex-row">
@@ -33,14 +33,16 @@
 <script>
 export default {
     name: "MoleculeWeatherCity",
-    props: [
-        "city"
-    ],
     methods: {
         getIntTemperature(temperature) {
             let number = temperature;
             let intTemperature = Math.floor(number)
             return intTemperature;
+        }
+    },
+    computed: {
+        city() {
+            return this.$store.getters['weather/getWeather'];
         }
     }
 }

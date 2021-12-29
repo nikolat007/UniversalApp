@@ -1,9 +1,9 @@
 <template>
-    <div class="container-xl">
+    <div class="container-xl mt-20">
         <div class="w-96 mb-5">
-            <h1 class="font-bold text-3xl mb-5 w-full text-center" :class="getWeatherType ? 'text-white' : ''"><span class="text-cyan-500">Weather</span> App</h1>
+            <h1 class="font-bold text-3xl mb-5 w-full text-center" :class="getWeatherType ? 'text-white' : ''"><span class="text-cyan-500">Search</span> here</h1>
             <form class="relative" action="" @submit.prevent="submitHandle">
-                <input list="cities" class="border rounded h-10 p-2 w-full bg-slate-100" type="text" name="city" autocomplete="off" placeholder="Type City name" v-model="citySearch" @input="getCities">
+                <input list="cities" class="border rounded h-10 p-2 w-full bg-slate-100 outline-none" type="text" name="city" autocomplete="off" placeholder="City name..." v-model="citySearch" @input="getCities">
                 <datalist id="cities" v-if="filteredCities && toggleList==true" class="bg-white border border-gray-100 w-full mt-2 absolute rounded max-h-96 overflow-y-auto overflow-x-hidden">
                     <option v-for="(city, index) in filteredCities" :key="index" @keypress.enter="selectCity(city.name)" class="pl-8 pr-2 py-1 relative cursor-pointer hover:bg-blue-200 hover:text-gray-900 rounded">
                         {{ city.name }}, {{ city.country }}
@@ -41,12 +41,13 @@ export default {
                 .then(data => {
                     this.weatherData = data;
                     this.setStateWeatherType(this.weatherData.weather[0].main);
-                    this.$emit('weatherData', this.weatherData);
+                    this.$store.dispatch('weather/setWeather', data);
                     this.toggleList = false;
                 })
                 .catch(errors => {
                     console.log(errors);
                     this.$emit('weatherData', []);
+                    this.$store.dispatch('weather/setWeather', null);
                     this.setStateWeatherType(null);
                 })
             }
@@ -75,9 +76,6 @@ export default {
         setStateWeatherType(type) {
             this.$store.dispatch('weather/setWeatherType', type);
         }
-    },
-    mounted() {
-        this.setStateWeatherType(null)
     },
     computed: {
         getWeatherType() {

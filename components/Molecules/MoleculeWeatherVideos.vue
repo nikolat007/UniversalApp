@@ -1,5 +1,5 @@
 <template>
-    <div id="responsiveVideoWrapper" class="absolute inset-0  -z-50 brightness-[.3]">
+    <div id="responsiveVideoWrapper" class="absolute inset-0 -z-50 brightness-[.3]">
         <video v-for="(type, index) in weatherTypes" :key="index" autoplay muted loop id="myVideo" class="h-full w-full object-cover" :class="getWeatherType==type ? '' : 'hidden'">
             <source :src="require(`~/assets/videos/${type}.mp4`)" type="video/mp4">
         </video>

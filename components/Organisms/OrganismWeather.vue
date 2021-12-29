@@ -1,7 +1,7 @@
 <template>
     <div>
-        <MoleculeWeatherForm @weatherData="setWeatherData"/>
-        <MoleculeWeatherCity v-if="weatherData.name" :city="weatherData" />
+        <MoleculeWeatherForm />
+        <MoleculeWeatherCity />
     </div>
 </template>
 
@@ -19,11 +19,6 @@ export default {
     data() {
         return {
             weatherData: []
-        }
-    },
-    methods: {
-        setWeatherData(data) {
-            this.weatherData = data;
         }
     }
 }
