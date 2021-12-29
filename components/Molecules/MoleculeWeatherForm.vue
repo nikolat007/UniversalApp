@@ -1,5 +1,5 @@
 <template>
-    <div class="container-xl">
+    <div class="container-xl mt-20">
         <div class="w-96 mb-5">
             <h1 class="font-bold text-3xl mb-5 w-full text-center" :class="getWeatherType ? 'text-white' : ''"><span class="text-cyan-500">Search</span> here</h1>
             <form class="relative" action="" @submit.prevent="submitHandle">

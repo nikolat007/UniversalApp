@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="relative py-20 min-h-screen">
+        <MoleculeWeatherVideos />
         <h2 class="text-center text-3xl font-bold mb-5 text-white">{{ getWeatherData.name }}, {{ getWeatherData.sys.country }}</h2>
         <MoleculeDisplayDetailedWeather v-if="detailedWeatherData" :detailedWeatherData="detailedWeatherData"/>
     </div>
@@ -7,11 +8,13 @@
 
 <script>
 
+import MoleculeWeatherVideos from '../Molecules/MoleculeWeatherVideos.vue'
 import MoleculeDisplayDetailedWeather from '../Molecules/MoleculeDisplayDetailedWeather.vue'
 
 export default {
     name: "OrganismDetailedWeather",
     components: {
+        MoleculeWeatherVideos,
         MoleculeDisplayDetailedWeather
     },
     data() {
