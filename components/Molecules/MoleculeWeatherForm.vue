@@ -10,6 +10,7 @@
                     </option>
                 </datalist>
                 <input class="bg-blue-500 text-white rounded p-2 mt-5 w-full cursor-pointer" type="submit" value="Search">
+                <button class="bg-blue-500 text-white rounded p-2 mt-5 w-full cursor-pointer" @click="getCurrentLocation">Current location</button>
             </form>
         </div>
     </div>
@@ -27,7 +28,8 @@ export default {
             weatherData: [],
             errors: [],
             filteredCities: null,
-            toggleList: false
+            toggleList: false,
+            currentLocationDetected: false
         }
     },
     methods: {
@@ -51,6 +53,21 @@ export default {
                     this.setStateWeatherType(null);
                 })
             }
+        },
+        getCurrentLocation() {
+            fetch("https://geolocation-db.com/json/", {
+                method: "GET"
+            })
+            .then(response => response.json())
+            .then(data => {
+                this.selectCity(data.city);
+                this.getWeatherData();
+                this.currentLocationDetected = true;
+            })
+            .catch(error => {
+                console.log(error);
+                this.currentLocationDetected = false;
+            })
         },
         submitHandle() {
             this.getWeatherData();
