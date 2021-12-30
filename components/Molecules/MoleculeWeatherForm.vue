@@ -10,7 +10,9 @@
                     </option>
                 </datalist>
                 <input class="bg-blue-500 text-white rounded p-2 mt-5 w-full cursor-pointer" type="submit" value="Search">
-                <button class="bg-blue-500 text-white rounded p-2 mt-5 w-full cursor-pointer" @click="getCurrentLocation">Current location</button>
+                <button class="bg-blue-500 text-white rounded p-2 h-10 w-10 cursor-pointer absolute top-0 -right-12" v-if="currentLocation==false" @click="getCurrentLocation">
+                <fa class="animate-bounce" icon="map-marker-alt" />
+                </button>
             </form>
         </div>
     </div>
@@ -29,7 +31,7 @@ export default {
             errors: [],
             filteredCities: null,
             toggleList: false,
-            currentLocationDetected: false
+            currentLocation: false
         }
     },
     methods: {
@@ -62,11 +64,11 @@ export default {
             .then(data => {
                 this.selectCity(data.city);
                 this.getWeatherData();
-                this.currentLocationDetected = true;
+                this.currentLocation = true;
             })
             .catch(error => {
                 console.log(error);
-                this.currentLocationDetected = false;
+                this.currentLocation = false;
             })
         },
         submitHandle() {
